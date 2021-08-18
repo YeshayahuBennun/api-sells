@@ -3,10 +3,10 @@ import User from '../typeorm/entities/User';
 import UsersRepository from '../typeorm/repositories/UsersRepository';
 
 class ListUserService {
-  public execute(): Promise<User[]> {
+  public async execute(): Promise<User[]> {
     const usersRepository = getCustomRepository(UsersRepository);
 
-    const users = usersRepository.find();
+    const users = await usersRepository.find();
 
     return users;
   }
